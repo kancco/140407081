@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>تست رنگی شدن ردیف منقضی جدول</title>
+  <style>
+    .table-clean {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .table-clean th, .table-clean td {
+      border: 1px solid #e2e8f0;
+      padding: 4px 6px;
+      text-align: center !important;
+      vertical-align: middle !important;
+    }
+    .table-clean tr.expired-row {
+      background: #ffeaea !important;
+    }
+  </style>
+</head>
+<body>
+  <h2>تست رنگی شدن ردیف منقضی</h2>
+  <table class="table-clean">
+    <thead>
+      <tr>
+        <th>IRC</th>
+        <th>وضعیت</th>
+        <th>نام شرکت</th>
+        <th>نوع محصول</th>
+        <th>توضیحات</th>
+        <th>کد</th>
+        <th>تاریخ انقضا</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>۹۷۶۳۰۲۸۳۱۴</td>
+        <td>فعال</td>
+        <td>مایان شیمی کویر</td>
+        <td>آرایشی و بهداشتی</td>
+        <td>مایع، روغنها، ژلها، کرمها</td>
+        <td>۳۵۶۸۷۶</td>
+        <td>۱۴۰۲/۰۵/۲۸</td>
+      </tr>
+      <tr>
+        <td>۹۳۹۸۹۹۲۱۴۴</td>
+        <td>فعال</td>
+        <td>تولیدی هیوا گستر خزر</td>
+        <td>شامپو بدن</td>
+        <td>شامپو بدن</td>
+        <td>۴۰۷۷۸۲</td>
+        <td>۱۴۰۲/۰۹/۲۸</td>
+      </tr>
+      <tr>
+        <td>۶۱۹۲۱۱۸۶۰۲</td>
+        <td>فعال</td>
+        <td>شیمی کاران طبرستان</td>
+        <td>فراورده های پاک کننده سطوح و شیشه</td>
+        <td>شیشه پاک کن</td>
+        <td>۴۰۰۴۸۳</td>
+        <td>۱۴۰۲/۰۸/۲۴</td>
+      </tr>
+      <tr>
+        <td>۳۹۳۷۲۷۳۷۶۹</td>
+        <td>فعال</td>
+        <td>توسعه الماس قائم گستر شمال</td>
+        <td>انواع دستمال سلولزی</td>
+        <td>کاغذی</td>
+        <td>۴۶۵۸۳۶</td>
+        <td>۱۴۰۳/۰۲/۲۵</td>
+      </tr>
+      <tr>
+        <td>۱۴۵۶۴۵۱۰۵۵</td>
+        <td>فعال</td>
+        <td>راشن شیمی نوتریکا</td>
+        <td>مایع پاک کننده چندمنظوره</td>
+        <td>مایع</td>
+        <td>۳۶۲۲۱۶</td>
+        <td>۱۴۰۳/۱۰/۱۴</td>
+      </tr>
+    </tbody>
+  </table>
+  <script>
+    function dateToComparable(val) {
+      if (!val) return 0;
+      let s = String(val).replace(/[۰-۹]/g, d => '0123456789'['۰۱۲۳۴۵۶۷۸۹'.indexOf(d)]);
+      s = s.replace(/-/g, '/').replace(/\./g, '/');
+      let m = s.match(/^(13\d{2}|14\d{2}|\d{4})\/(\d{1,2})\/(\d{1,2})$/);
+      if(m) return Number(m[1] + m[2].padStart(2,'0') + m[3].padStart(2,'0'));
+      return 0;
+    }
+    // تاریخ امروز شمسی را به صورت دستی وارد کن
+    const todayComparable = dateToComparable("۱۴۰۳/۰۹/۲۷");
+    document.querySelectorAll('.table-clean tbody tr').forEach(tr => {
+      const expireTd = tr.querySelector('td:nth-child(7)');
+      if (expireTd) {
+        const expireVal = expireTd.textContent.trim();
+        const expireComparable = dateToComparable(expireVal);
+        if (expireComparable > 0 && expireComparable < todayComparable) {
+          tr.classList.add('expired-row');
+        }
+      }
+    });
+  </script>
+</body>
+</html>

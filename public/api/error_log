@@ -1,0 +1,10 @@
+[28-Sep-2025 15:14:17 UTC] PHP Notice:  Undefined variable: manager_mobile in /home/kancir/cosmetics.kanc.ir/public/api/import_factories.php on line 2
+[28-Sep-2025 15:14:17 UTC] manager_mobile input: NULL
+[28-Sep-2025 15:15:21 UTC] PHP Notice:  Undefined variable: manager_mobile in /home/kancir/cosmetics.kanc.ir/public/api/import_factories.php on line 2
+[28-Sep-2025 15:15:21 UTC] manager_mobile input: NULL
+[28-Sep-2025 15:17:52 UTC] PHP Notice:  Undefined variable: manager_mobile in /home/kancir/cosmetics.kanc.ir/public/api/import_factories.php on line 2
+[28-Sep-2025 15:17:52 UTC] manager_mobile input: NULL
+[28-Sep-2025 15:42:22 UTC] PHP Notice:  Undefined variable: manager_mobile in /home/kancir/cosmetics.kanc.ir/public/api/import_factories.php on line 2
+[28-Sep-2025 15:42:22 UTC] manager_mobile input: NULL
+[28-Sep-2025 15:51:09 UTC] PHP Notice:  Undefined variable: manager_mobile in /home/kancir/cosmetics.kanc.ir/public/api/import_factories.php on line 2
+[28-Sep-2025 15:51:09 UTC] manager_mobile input: NULL

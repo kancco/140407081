@@ -1,0 +1,57 @@
+.table-clean {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-bottom: 18px;
+  table-layout: auto;
+}
+.table-clean th, .table-clean td {
+  border: 1px solid #e2e8f0;
+  padding: 7px 8px;
+  text-align: center !important;
+  vertical-align: middle !important;
+  font-size: 13px;
+  background: #fff;
+  font-family: inherit;
+  letter-spacing: 0.5px;
+}
+.table-clean thead th {
+  background: #f0f4f8;
+  font-weight: bold;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.table-clean tr.expired-row {
+  background: #ffeaea !important;
+  color: #a00 !important;
+}
+.table-clean tbody tr:nth-child(even):not(.expired-row) {
+  background: #f9fafb;
+}
+.table-clean tbody tr:hover:not(.expired-row) {
+  background: #e7f0fa;
+}
+.surface {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.07);
+  padding: 22px 18px;
+  margin-bottom: 24px;
+}
+.table-clean td.multiline {
+  white-space: normal !important;
+  word-break: break-word !important;
+  max-width: 360px !important;
+  min-width: 140px !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  direction: rtl !important;
+  font-family: inherit;
+}
+
+/* انتخابگر قوی‌تر برای رنگی شدن ردیف منقضی */
+#report-area .table-clean tr.expired-row {
+  background: #ffeaea !important;
+  color: #a00 !important;
+}

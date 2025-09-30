@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" class="vf-on">
+<head>
+  <meta charset="UTF-8">
+  <title>گزارش آخرین تغییرات</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preload" href="/assets/fonts/Vazirmatn[wght].woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/theme-typography.css?v=1">
+  <link rel="stylesheet" href="/assets/css/header-footer.css">
+  <link rel="stylesheet" href="/assets/css/import.css?v=7">
+</head>
+<body>
+  <div id="navbar"></div>
+  <section class="surface" style="max-width:1400px;margin:32px auto;">
+    <h1 class="gradient-text">آخرین تغییرات داده‌ها</h1>
+    <p class="lead">نمایش خلاصه‌ای از جدیدترین رکوردهای واحد تولیدی، منبع (Source)، مسئول فنی (Tech) و IRC.</p>
+    <div id="report-area"></div>
+  </section>
+  <div id="footer"></div>
+  <script type="module" src="/assets/js/ui-common.js"></script>
+  <script type="module" src="/assets/js/reports.js"></script>
+  <script>
+    function loadComponent(id, url) {
+      fetch(url)
+        .then(resp => resp.text())
+        .then(html => document.getElementById(id).innerHTML = html)
+        .catch(() => document.getElementById(id).innerHTML = "<div style='color:red;'>مشکل بارگذاری...</div>");
+    }
+    loadComponent('navbar', '/pages/navbar.html');
+    loadComponent('footer', '/pages/footer.html');
+  </script>
+</body>
+</html>

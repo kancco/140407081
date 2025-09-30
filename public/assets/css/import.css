@@ -1,0 +1,308 @@
+/* فونت‌های لوکال */
+@font-face{
+  font-family:'AppFont';
+  font-weight:400;
+  font-style:normal;
+  src:
+    url('../fonts/Vazirmatn-Regular.woff2') format('woff2'),
+    url('../fonts/Vazirmatn-Regular.woff') format('woff'),
+    url('../fonts/Vazirmatn-Regular.ttf') format('truetype');
+  font-display:swap;
+}
+@font-face{
+  font-family:'AppFont';
+  font-weight:600;
+  font-style:normal;
+  src:
+    url('../fonts/Vazirmatn-Bold.woff2') format('woff2'),
+    url('../fonts/Vazirmatn-Bold.woff') format('woff'),
+    url('../fonts/Vazirmatn-Bold.ttf') format('truetype');
+  font-display:swap;
+}
+
+:root{
+  --bg:#f6f7f9;
+  --panel:#ffffff;
+  --border:#d9dfe6;
+  --radius:10px;
+  --c-primary:#2563eb;
+  --c-primary-hover:#1d4ed8;
+  --c-accent:#0d9488;
+  --c-danger:#dc2626;
+  --text:#1f2937;
+  --font:'AppFont',Tahoma,Arial,sans-serif;
+  --shadow:0 4px 24px 0 #dbeafe80;
+}
+
+*{box-sizing:border-box;}
+html,body{
+  margin:0;padding:0;
+  font-family:var(--font);
+  background:var(--bg);
+  color:var(--text);
+  direction:rtl;
+  -webkit-font-smoothing:antialiased;
+}
+.topbar{
+  background:linear-gradient(90deg,#2563eb 70%,#0d9488);
+  color:#fff;padding:18px 28px;
+  box-shadow:var(--shadow);
+}
+.topbar h1{margin:0;font-size:22px;font-weight:700;letter-spacing:1px;}
+
+.wrapper{
+  max-width:1400px;
+  margin:24px auto;
+  padding:0 16px;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:22px;
+}
+
+.panel{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:18px 22px;
+  box-shadow:var(--shadow);
+  transition:.22s box-shadow;
+}
+.panel:hover{
+  box-shadow:0 8px 32px 0 #a5b4fc50;
+}
+.panel h2{
+  margin:0 0 14px;
+  font-size:18px;
+  font-weight:700;
+  color:var(--c-primary);
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+}
+
+label{
+  display:block;
+  font-size:13px;
+  font-weight:600;
+  margin-bottom:5px;
+  color:#344152;
+  letter-spacing:0.3px;
+}
+
+input[type=text],select,textarea{
+  width:100%;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:7px;
+  padding:9px 12px;
+  font-family:inherit;
+  font-size:14px;
+  resize:vertical;
+  min-height:42px;
+  transition:.15s border-color, .15s box-shadow;
+  direction:rtl;
+  box-shadow:0 1px 8px #e6e6ef22;
+}
+
+textarea{min-height:95px;}
+
+input:focus,select:focus,textarea:focus{
+  outline:none;
+  border-color:var(--c-primary);
+  box-shadow:0 0 0 2px #2563eb25;
+}
+
+.btn-primary,.btn-secondary,.btn-light{
+  border:none;
+  border-radius:9px;
+  cursor:pointer;
+  font-weight:700;
+  font-size:14px;
+  padding:11px 20px;
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  transition:.18s background,.18s box-shadow;
+  box-shadow:0 2px 8px #e0e7ff33;
+}
+
+.btn-primary{background:var(--c-primary);color:#fff;}
+.btn-primary:hover{background:var(--c-primary-hover);}
+.btn-secondary{background:var(--c-accent);color:#fff;}
+.btn-secondary:hover{background:#0f766e;}
+.btn-light{background:#e5e7eb;color:#111;}
+.btn-light:hover{background:#d1d5db;}
+
+.actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.status{font-size:14px;color:var(--c-accent);font-weight:700;padding-inline-start:8px;}
+
+.mapping-area{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(380px,1fr));
+  gap:12px;
+}
+.map-row{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+.map-row input{
+  flex:1;
+  background:#f1f5f9;
+  font-size:13px;
+  border:1px solid #cdd5df;
+  border-radius:7px;
+  padding:7px 10px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.map-row select{flex:1;}
+
+.table-scroll{
+  overflow:auto;
+  max-height:420px;
+  border:1px solid var(--border);
+  border-radius:8px;
+}
+
+/* جدول گزارش‌ها فقط وسط‌چین و مرتب */
+.table-clean {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  min-width: 700px;
+  table-layout: auto;
+}
+.table-clean th,
+.table-clean td {
+  border: 1px solid #e2e8f0;
+  padding: 5px 8px;
+  text-align: center !important;
+  vertical-align: middle !important;
+  font-family: var(--font);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: 0.5px;
+}
+.table-clean tbody tr:nth-child(even){background:#fafafa;}
+.table-clean tbody tr:hover{background:#eef6ff;}
+.table-clean thead {
+  background: #f0f4f8;
+  font-weight: 700;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.table-clean td.multiline {
+  white-space: normal !important;
+  word-break: break-word !important;
+  max-width: 360px !important;
+  min-width: 140px !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  direction: rtl !important;
+  font-family: inherit;
+}
+.table-clean tr.expired-row {
+  background: #ffeaea !important;
+}
+
+/* جدول پیش‌نمایش ایمپورت مدرن و خلوت و با فونت کوچک */
+.import-preview-wrapper {
+  max-width: 100%;
+  overflow-x: auto;
+  background: #f8fafc;
+  border-radius: 10px;
+  border: 1px solid #d5dbe6;
+  margin-bottom: 18px;
+  box-shadow: 0 2px 16px #dbeafe38;
+  padding: 6px 2px;
+}
+
+.import-preview-table {
+  font-size: 10px;                        /* کوچکتر شدن فونت متن جدول */
+  border-collapse: collapse;
+  min-width: 900px;
+  width: max-content;
+  max-width: 100%;
+  background: #fff;
+  table-layout: fixed;
+  border-radius: 9px;
+}
+
+.import-preview-table th,
+.import-preview-table td {
+  padding: 3px 6px !important;
+  border: 1px solid #e3e5e7;
+  text-align: center !important;
+  vertical-align: middle !important;
+  font-family: var(--font);
+  font-size: 10px !important;              /* کوچکتر شدن فونت سلول‌ها */
+  white-space: nowrap !important;          /* فقط یک خط، حتی اگر جا نشود */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.4;
+  font-weight: 500;
+  max-width: 110px;
+}
+
+.import-preview-table th {
+  background: linear-gradient(90deg,#e0e7ff 60%,#f1f5f9 100%);
+  font-weight: 700;
+  color: #2563eb;
+  font-size: 10px !important;            /* کوچکتر شدن فونت عنوان ستون */
+  border-bottom: 2px solid #b6c1e6;
+}
+
+.import-preview-table tbody tr:nth-child(even){background:#f3f7fc;}
+.import-preview-table tbody tr:hover{background:#e8f0fe;}
+
+/* اسکرول بار زیبا برای پیش‌نمایش */
+.import-preview-wrapper::-webkit-scrollbar {
+  height:7px;
+  background:#e0e7ff;
+  border-radius:8px;
+}
+.import-preview-wrapper::-webkit-scrollbar-thumb {
+  background:#94a3b8;
+  border-radius:8px;
+}
+
+/* لاگ خروجی */
+.log{
+  background:#0f172a;
+  color:#d1e9ff;
+  font-family:Consolas,monospace;
+  padding:12px;
+  border-radius:10px;
+  overflow:auto;
+  max-height:320px;
+  font-size:12px;
+  direction:ltr;
+  line-height:1.3;
+  border:1px solid #1e293b;
+}
+
+.footer{
+  text-align:center;
+  padding:25px 10px;
+  font-size:12px;
+  color:#475569;
+  background: #f0f4f8;
+  border-radius: 0 0 10px 10px;
+  margin-top: 24px;
+}
+
+@media (min-width:1200px){
+  .wrapper{grid-template-columns:repeat(12,1fr);}
+  .wrapper>.panel:nth-child(1){grid-column:span 12;}
+  .wrapper>.panel:nth-child(2){grid-column:span 12;}
+  .wrapper>.panel.actions{grid-column:span 12;}
+  .wrapper>.panel:nth-child(4){grid-column:span 6;}
+  .wrapper>.panel:nth-child(5){grid-column:span 6;}
+  .wrapper>.panel:nth-child(6){grid-column:span 12;}
+}
